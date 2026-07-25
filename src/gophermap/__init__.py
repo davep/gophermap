@@ -17,10 +17,11 @@ __licence__ = "MIT"
 ##############################################################################
 # Local imports.
 from .gopher_map import GopherMap
+from .item import GopherItem
 from .item_type import ItemType
 
 ##############################################################################
 # Exports.
-__all__ = ["GopherMap", "ItemType"]
+__all__ = ["GopherItem", "GopherMap", "ItemType"]
 
 ### __init__.py ends here
