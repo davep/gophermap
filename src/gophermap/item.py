@@ -30,6 +30,11 @@ class GopherItem:
         """The port of the Gopher item."""
 
     @property
+    def raw(self) -> str:
+        """The raw text of the Gopher item."""
+        return self._raw
+
+    @property
     def type(self) -> ItemType:
         """The type of the Gopher item."""
         return self._type
