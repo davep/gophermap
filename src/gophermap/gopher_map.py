@@ -4,10 +4,15 @@
 # Python imports.
 from collections.abc import Iterator
 from functools import cached_property
+from typing import Final
 
 ##############################################################################
 # Local imports.
 from .item import GopherItem
+
+##############################################################################
+EOF: Final = ".\r\n"
+"""The EOF marker for a Gopher map."""
 
 
 ##############################################################################
@@ -33,7 +38,9 @@ class GopherMap:
         Yields:
             Gopher items.
         """
-        for line in map_text.splitlines():
+        for line in map_text.splitlines(keepends=True):
+            if line == EOF:
+                break
             yield GopherItem(line)
 
     @property
