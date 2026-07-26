@@ -279,7 +279,7 @@ wheels = [
 
 [[package]]
 name = "gophermap"
-version = "0.0.1"
+version = "0.0.4"
 source = { editable = "." }
 
 [package.dev-dependencies]
