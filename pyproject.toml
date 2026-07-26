@@ -1,13 +1,43 @@
 [project]
 name = "gophermap"
 version = "0.0.1"
-description = "Coming soon"
+description = "A simple library for parsng Gophermaps"
 readme = "README.md"
 authors = [
     { name = "Dave Pearson", email = "davep@davep.org" }
 ]
 requires-python = ">=3.12"
 dependencies = []
+license = "MIT"
+keywords = [
+    "Gopher",
+    "Gophermap",
+    "Hypertext",
+    "library",
+    "Markup",
+    "parser",
+    "Small Web",
+    "smolweb",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://gophermap.davep.dev/"
+Repository = "https://github.com/davep/gophermap"
+Documentation = "https://gophermap.davep.dev/"
+Source = "https://github.com/davep/gophermap"
+Issues = "https://github.com/davep/gophermap/issues"
+Discussions = "https://github.com/davep/gophermap/discussions"
 
 [project.scripts]
 gophermap = "gophermap.__main__:parse_input"
@@ -21,6 +51,11 @@ name = "testpypi"
 url = "https://test.pypi.org/simple/"
 publish-url = "https://test.pypi.org/legacy/"
 explicit = true
+
+[tool.pyright]
+venvPath="."
+venv=".venv"
+exclude=[".venv"]
 
 [dependency-groups]
 dev = [
@@ -38,11 +73,6 @@ test = [
     "pytest>=9.1.1",
     "pytest-cov>=7.1.0",
 ]
-
-[tool.pyright]
-venvPath="."
-venv=".venv"
-exclude=[".venv"]
 
 [tool.ruff.lint]
 select = [
