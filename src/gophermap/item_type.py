@@ -65,5 +65,34 @@ class ItemType(StrEnum):
         assert isinstance(value, str)
         return ItemType.UNKNOWN
 
+    @property
+    def mime_type(self) -> str:
+        """Get the MIME type for the item type.
+
+        Note:
+            This is a best-effort mapping and may not be accurate for all
+            item types.
+        """
+        return {
+            ItemType.TEXT: "text/plain",
+            ItemType.MENU: "text/gopher-menu",
+            ItemType.CSO: "text/x-cso",
+            ItemType.ERROR: "text/x-error",
+            ItemType.BINHEX: "application/mac-binhex40",
+            ItemType.DOS_FILE: "application/octet-stream",
+            ItemType.UUENCODED: "application/x-uuencode",
+            ItemType.INDEX_SEARCH: "text/x-index-search",
+            ItemType.TELNET: "application/x-telnet",
+            ItemType.BINARY: "application/octet-stream",
+            ItemType.INFO: "text/plain",
+            ItemType.GIF: "image/gif",
+            ItemType.IMAGE: "application/octet-stream",
+            ItemType.HTML: "text/html",
+            ItemType.DOCUMENT: "application/octet-stream",
+            ItemType.AUDIO: "application/octet-stream",
+            ItemType.PDF: "application/pdf",
+            ItemType.XML: "application/xml",
+        }.get(self, "application/octet-stream")
+
 
 ### item_type.py ends here
