@@ -1,5 +1,11 @@
 # GopherMap ChangeLog
 
+## v0.1.0
+
+**Released: 2026-07-27**
+
+- Initial release.
+
 ## v0.0.1
 
 **Released: 2026-07-25**
