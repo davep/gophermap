@@ -43,4 +43,12 @@ def test_valid_map() -> None:
     assert gopher_map.items[0].port == 70
 
 
+##############################################################################
+def test_skip_empty_lines() -> None:
+    """Test that empty lines are skipped."""
+    gopher_map = GopherMap(raw := "\r\n\r\n.\r\n")
+    assert raw == gopher_map.raw
+    assert len(gopher_map.items) == 0
+
+
 ### test_gopher_map.py ends here

@@ -1,6 +1,6 @@
 [project]
 name = "gophermap"
-version = "0.1.0"
+version = "0.1.1"
 description = "A simple library for parsng Gophermaps"
 readme = "README.md"
 authors = [
