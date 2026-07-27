@@ -11,7 +11,7 @@ from typing import Final
 from .item import GopherItem
 
 ##############################################################################
-EOF: Final = "."
+EOF: Final[str] = "."
 """The EOF marker for a Gopher map."""
 
 
