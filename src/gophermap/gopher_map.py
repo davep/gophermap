@@ -11,7 +11,7 @@ from typing import Final
 from .item import GopherItem
 
 ##############################################################################
-EOF: Final = ".\r\n"
+EOF: Final = "."
 """The EOF marker for a Gopher map."""
 
 
@@ -39,7 +39,7 @@ class GopherMap:
             Gopher items.
         """
         for line in map_text.splitlines(keepends=True):
-            if line == EOF:
+            if line.strip() == EOF:
                 break
             yield GopherItem(line)
 
