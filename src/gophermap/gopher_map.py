@@ -41,7 +41,8 @@ class GopherMap:
         for line in map_text.splitlines(keepends=True):
             if line.strip() == EOF:
                 break
-            yield GopherItem(line)
+            if line.strip():
+                yield GopherItem(line)
 
     @property
     def raw(self) -> str:
