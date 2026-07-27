@@ -92,7 +92,7 @@ class ItemType(StrEnum):
             ItemType.AUDIO: "application/octet-stream",
             ItemType.PDF: "application/pdf",
             ItemType.XML: "application/xml",
-        }.get(self, "application/octet-stream")
+        }.get(self, "application/x-gopher-unknown")
 
 
 ### item_type.py ends here
