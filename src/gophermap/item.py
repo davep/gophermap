@@ -2,7 +2,6 @@
 
 ##############################################################################
 # Local imports.
-from .exceptions import NoFields
 from .item_type import ItemType
 
 
