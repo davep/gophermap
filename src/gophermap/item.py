@@ -18,14 +18,11 @@ class GopherItem:
         """
         self._raw = line
         """The raw text of the Gopher item."""
-        if not (line := line.strip("\r\n")):
-            raise NoFields("The Gopher item line is empty.")
-        fields = line.split("\t")
-        if not fields or not fields[0]:
-            raise NoFields(f"The Gopher item line has no fields: {line!r}")
-        self._type = ItemType(fields[0][0] or ItemType.INFO)
+        if not (fields := line.strip("\r\n").split("\t"))[0]:
+            fields[0] = ItemType.INFO.value
+        self._type = ItemType(fields[0][0])
         """The type of the Gopher item."""
-        self._display_text = fields[0][1:] if len(fields) > 0 else ""
+        self._display_text = fields[0][1:]
         """The display text of the Gopher item."""
         self._selector = fields[1] if len(fields) > 1 else ""
         """The selector of the Gopher item."""

@@ -7,6 +7,7 @@ from pytest import mark, raises
 ##############################################################################
 # Local imports.
 from gophermap import GopherItem, NoFields
+from gophermap.item_type import ItemType
 
 
 ##############################################################################
@@ -18,10 +19,9 @@ from gophermap import GopherItem, NoFields
         "\t\r\n",
     ],
 )
-def test_for_no_fields(line: str) -> None:
-    """Test that a GopherItem with no fields raises NoFields."""
-    with raises(NoFields):
-        _ = GopherItem(line)
+def test_empty_lines_become_info(line: str) -> None:
+    """Test that empty lines become INFO items."""
+    assert GopherItem(line).type is ItemType.INFO
 
 
 ##############################################################################

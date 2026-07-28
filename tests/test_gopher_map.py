@@ -34,11 +34,21 @@ def test_valid_map() -> None:
 
 
 ##############################################################################
-def test_skip_empty_lines() -> None:
-    """Test that empty lines are skipped."""
+def test_empty_lines_become_info() -> None:
+    """Test that empty lines become INFO items."""
     gopher_map = GopherMap(raw := "\r\n\r\n.\r\n")
     assert raw == gopher_map.raw
-    assert len(gopher_map.items) == 0
+    assert len(gopher_map.items) == 2
+    assert gopher_map.items[0].type is ItemType.INFO
+    assert gopher_map.items[0].display_text == ""
+    assert gopher_map.items[0].selector == ""
+    assert gopher_map.items[0].host == ""
+    assert gopher_map.items[0].port == 70
+    assert gopher_map.items[1].type is ItemType.INFO
+    assert gopher_map.items[1].display_text == ""
+    assert gopher_map.items[1].selector == ""
+    assert gopher_map.items[1].host == ""
+    assert gopher_map.items[1].port == 70
 
 
 ##############################################################################
