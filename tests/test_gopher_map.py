@@ -7,6 +7,7 @@ from pytest import raises
 ##############################################################################
 # Local imports.
 from gophermap import GopherMap, NoFields
+from gophermap.item_type import ItemType
 
 
 ##############################################################################
@@ -49,6 +50,22 @@ def test_skip_empty_lines() -> None:
     gopher_map = GopherMap(raw := "\r\n\r\n.\r\n")
     assert raw == gopher_map.raw
     assert len(gopher_map.items) == 0
+
+
+##############################################################################
+def test_allow_lines_without_tabs() -> None:
+    """Test that lines without tabs are allowed.
+
+    https://github.com/davep/rogallo/discussions/241
+    """
+    gopher_map = GopherMap(raw := "iHello\r\n.\r\n")
+    assert raw == gopher_map.raw
+    assert len(gopher_map.items) == 1
+    assert gopher_map.items[0].type is ItemType.INFO
+    assert gopher_map.items[0].display_text == "Hello"
+    assert gopher_map.items[0].selector == ""
+    assert gopher_map.items[0].host == ""
+    assert gopher_map.items[0].port == 70
 
 
 ### test_gopher_map.py ends here
