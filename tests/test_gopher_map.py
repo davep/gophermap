@@ -37,7 +37,7 @@ def test_valid_map() -> None:
     gopher_map = GopherMap(raw := "iHello\tworld\tlocalhost\t70\r\n.\r\n")
     assert raw == gopher_map.raw
     assert len(gopher_map.items) == 1
-    assert gopher_map.items[0].type.name == "INFO"
+    assert gopher_map.items[0].type is ItemType.INFO
     assert gopher_map.items[0].display_text == "Hello"
     assert gopher_map.items[0].selector == "world"
     assert gopher_map.items[0].host == "localhost"
