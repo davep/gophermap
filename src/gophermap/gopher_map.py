@@ -38,8 +38,8 @@ class GopherMap:
         Yields:
             Gopher items.
         """
-        for line in map_text.splitlines(keepends=True):
-            if line.strip() == EOF:
+        for line in map_text.splitlines():
+            if line == EOF:
                 break
             yield GopherItem(line)
 

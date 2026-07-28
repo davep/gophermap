@@ -17,7 +17,7 @@ class GopherItem:
         """
         self._raw = line
         """The raw text of the Gopher item."""
-        if not (fields := line.strip("\r\n").split("\t"))[0]:
+        if not (fields := line.rstrip("\r\n").split("\t"))[0]:
             fields[0] = ItemType.INFO.value
         self._type = ItemType(fields[0][0])
         """The type of the Gopher item."""
