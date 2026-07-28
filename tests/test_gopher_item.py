@@ -2,11 +2,11 @@
 
 ##############################################################################
 # Pytest imports.
-from pytest import mark, raises
+from pytest import mark
 
 ##############################################################################
 # Local imports.
-from gophermap import GopherItem, NoFields
+from gophermap import GopherItem
 from gophermap.item_type import ItemType
 
 
