@@ -4,7 +4,7 @@
 
 **Released: 2026-07-27**
 
-- Remove the "no tabs is a problem" approach.
+- Make parsing far more relaxed. Empty lines also become empty `i`nfo lines.
   ([#7](https://github.com/davep/gophermap/pull/7))
 
 ## v0.1.1
