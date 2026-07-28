@@ -16,11 +16,13 @@ class GopherItem:
         Args:
             line: The line of text from the Gopher map.
         """
-        if not line:
-            raise NoFields("The Gopher item line is empty.")
         self._raw = line
         """The raw text of the Gopher item."""
-        fields = line.rstrip("\r\n").split("\t")
+        if not (line := line.strip("\r\n")):
+            raise NoFields("The Gopher item line is empty.")
+        fields = line.split("\t")
+        if not fields or not fields[0]:
+            raise NoFields(f"The Gopher item line has no fields: {line!r}")
         self._type = ItemType(fields[0][0] or ItemType.INFO)
         """The type of the Gopher item."""
         self._display_text = fields[0][1:] if len(fields) > 0 else ""
