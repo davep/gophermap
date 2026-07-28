@@ -1,12 +1,8 @@
 """Tests for the GopherMap class."""
 
 ##############################################################################
-# Pytest imports.
-from pytest import raises
-
-##############################################################################
 # Local imports.
-from gophermap import GopherMap, NoFields
+from gophermap import GopherMap
 from gophermap.item_type import ItemType
 
 
@@ -22,13 +18,6 @@ def test_eof_only_map() -> None:
     """Test that a Gopher map with only the EOF marker has no items."""
     gopher_map = GopherMap(".\r\n")
     assert gopher_map.items == ()
-
-
-##############################################################################
-def test_no_fields() -> None:
-    """Test that a Gopher map with no fields raises NoFields."""
-    with raises(NoFields):
-        _ = GopherMap("x").items
 
 
 ##############################################################################

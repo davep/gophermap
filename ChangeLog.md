@@ -1,5 +1,12 @@
 # GopherMap ChangeLog
 
+## Unreleased
+
+**Released: 2026-07-27**
+
+- Remove the "no tabs is a problem" approach.
+  ([#7](https://github.com/davep/gophermap/pull/7))
+
 ## v0.1.1
 
 **Released: 2026-07-27**
