@@ -1,8 +1,8 @@
 # GopherMap ChangeLog
 
-## Unreleased
+## v0.2.0
 
-**Released: 2026-07-27**
+**Released: 2026-07-28**
 
 - Make parsing far more relaxed. Empty lines also become empty `i`nfo lines.
   ([#7](https://github.com/davep/gophermap/pull/7))
