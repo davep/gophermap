@@ -2,7 +2,6 @@
 
 ##############################################################################
 # Local imports.
-from .exceptions import NoFields
 from .item_type import ItemType
 
 
@@ -16,16 +15,13 @@ class GopherItem:
         Args:
             line: The line of text from the Gopher map.
         """
-        if not line:
-            raise NoFields("The Gopher item line is empty.")
-        if "\t" not in line:
-            raise NoFields(f"The Gopher item line has no tab characters: {line!r}")
         self._raw = line
         """The raw text of the Gopher item."""
-        fields = line.rstrip("\r\n").split("\t")
-        self._type = ItemType(fields[0][0] or ItemType.INFO)
+        if not (fields := line.rstrip("\r\n").split("\t"))[0]:
+            fields[0] = ItemType.INFO.value
+        self._type = ItemType(fields[0][0])
         """The type of the Gopher item."""
-        self._display_text = fields[0][1:] if len(fields) > 0 else ""
+        self._display_text = fields[0][1:]
         """The display text of the Gopher item."""
         self._selector = fields[1] if len(fields) > 1 else ""
         """The selector of the Gopher item."""
