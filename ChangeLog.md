@@ -1,5 +1,12 @@
 # GopherMap ChangeLog
 
+## Unreleased
+
+**Released: WiP**
+
+- Removed the exceptions from the library.
+  ([#10](https://github.com/davep/gophermap/pull/10))
+
 ## v0.2.0
 
 **Released: 2026-07-28**
