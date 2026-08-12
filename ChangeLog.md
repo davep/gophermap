@@ -6,6 +6,8 @@
 
 - Removed the exceptions from the library.
   ([#10](https://github.com/davep/gophermap/pull/10))
+- Added an optional strict mode (and, in doing so, added an exception back).
+  ([#12](https://github.com/davep/gophermap/pull/12))
 
 ## v0.2.0
 
