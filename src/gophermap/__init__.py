@@ -16,6 +16,7 @@ __licence__ = "MIT"
 
 ##############################################################################
 # Local imports.
+from .exceptions import GopherMapError
 from .gopher_map import GopherMap
 from .item import GopherItem
 from .item_type import ItemType
@@ -25,6 +26,7 @@ from .item_type import ItemType
 __all__ = [
     "GopherItem",
     "GopherMap",
+    "GopherMapError",
     "ItemType",
 ]
 
