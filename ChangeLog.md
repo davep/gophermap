@@ -8,6 +8,12 @@
   ([#10](https://github.com/davep/gophermap/pull/10))
 - Added an optional strict mode (and, in doing so, added an exception back).
   ([#12](https://github.com/davep/gophermap/pull/12))
+- Added `has_error` instance property to the `GopherMap` class.
+  ([#13](https://github.com/davep/gophermap/pull/13))
+- Added `is_likely_a_map` as a class method.
+  ([#13](https://github.com/davep/gophermap/pull/13))
+- Added `is_likely_error` as a class method.
+  ([#13](https://github.com/davep/gophermap/pull/13))
 
 ## v0.2.0
 
