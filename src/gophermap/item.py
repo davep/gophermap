@@ -2,6 +2,7 @@
 
 ##############################################################################
 # Local imports.
+from .exceptions import GopherMapError
 from .item_type import ItemType
 
 
@@ -9,11 +10,15 @@ from .item_type import ItemType
 class GopherItem:
     """A class for holding an item in the Gopher map."""
 
-    def __init__(self, line: str) -> None:
+    def __init__(self, line: str, strict: bool = False) -> None:
         """Initialise the Gopher item.
 
         Args:
             line: The line of text from the Gopher map.
+            strict: Whether to be strict about parsing the Gopher item.
+
+        Raises:
+            GopherMapError: If the map is in strict mode and issues are found.
         """
         self._raw = line
         """The raw text of the Gopher item."""
@@ -29,6 +34,12 @@ class GopherItem:
         """The host of the Gopher item."""
         self._port = int(fields[3]) if len(fields) > 3 and fields[3].isdigit() else 70
         """The port of the Gopher item."""
+        # If we're in strict mode, let's do some harsh checks.
+        if strict:
+            if "\t" not in line:
+                raise GopherMapError(f"Line is missing a tab character: {line!r}")
+            if self._type is ItemType.UNKNOWN:
+                raise GopherMapError(f"Unknown item type: {self._type!r}")
 
     @property
     def raw(self) -> str:

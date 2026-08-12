@@ -1,8 +1,12 @@
 """Tests for the GopherMap class."""
 
 ##############################################################################
+# Pytest imports.
+from pytest import mark, raises
+
+##############################################################################
 # Local imports.
-from gophermap import GopherMap
+from gophermap import GopherMap, GopherMapError
 from gophermap.item_type import ItemType
 
 
@@ -65,6 +69,21 @@ def test_allow_lines_without_tabs() -> None:
     assert gopher_map.items[0].selector == ""
     assert gopher_map.items[0].host == ""
     assert gopher_map.items[0].port == 70
+
+
+##############################################################################
+@mark.parametrize(
+    "test_map",
+    [
+        "",
+        "Test\r\n.\r\n",
+        "!Hello\tworld\tlocalhost\r\n.\r\n",
+    ],
+)
+def test_strict_on_bad_map(test_map: str) -> None:
+    """Test that strict mode raises an error on a bad map."""
+    with raises(GopherMapError):
+        _ = GopherMap(test_map, strict=True).items
 
 
 ### test_gopher_map.py ends here
