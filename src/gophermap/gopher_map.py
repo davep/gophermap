@@ -8,7 +8,7 @@ from typing import Final
 
 ##############################################################################
 # Local imports.
-from .exceptions import GopherMapError
+from .exceptions import EmptyMap
 from .item import GopherItem
 
 ##############################################################################
@@ -42,7 +42,7 @@ class GopherMap:
             Gopher items.
         """
         if self._strict and not map_text:
-            raise GopherMapError("Gopher map is empty")
+            raise EmptyMap("Gopher map is empty")
         for line in map_text.splitlines():
             if line == EOF:
                 break
@@ -58,7 +58,7 @@ class GopherMap:
         """The list of Gopher items in the map.
 
         Raises:
-            GopherMapError: If the map is in strict mode and issues are found.
+            EmptyMap: If in strict mode and the map is empty.
         """
         return tuple(self._parse_map(self._raw))
 
