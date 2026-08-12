@@ -86,4 +86,58 @@ def test_strict_on_bad_map(test_map: str) -> None:
         _ = GopherMap(test_map, strict=True).items
 
 
+##############################################################################
+@mark.parametrize(
+    "test_map, expected",
+    [
+        ("iHello\tworld\tlocalhost\t70\r\n3Error\tworld\tlocalhost\t70\r\n.\r\n", True),
+        ("iHello\tworld\tlocalhost\t70\r\n.\r\n", False),
+        ("3Error\tworld\tlocalhost\t70\r\n.\r\n", True),
+        ("This is just some random test", False),
+        (".\r\n", False),
+        ("", False),
+    ],
+)
+def test_has_error(test_map: str, expected: bool) -> None:
+    """Test that has_error returns True if the map contains an error item."""
+    assert GopherMap(test_map).has_error is expected
+
+
+##############################################################################
+@mark.parametrize(
+    "test_map, expected",
+    [
+        ("", False),
+        ("iHello\tworld\tlocalhost\t70\r\n3Error\tworld\tlocalhost\t70\r\n.\r\n", True),
+        ("iHello\tworld\tlocalhost\t70\r\n.\r\n", True),
+        ("3Error\tworld\tlocalhost\t70\r\n.\r\n", True),
+        ("This is just some random test", False),
+        ("Hello\tworld\tlocalhost\t70\r\n.\r\n", False),
+        ("hello\tworld\tlocalhost\t70\r\n.\r\n", True),
+        (".\r\n", True),
+    ],
+)
+def test_is_likel_a_map(test_map: str, expected: bool) -> None:
+    """Test is_likely_a_map returns True if the map is likely a valid Gopher map."""
+    assert GopherMap.is_likely_a_map(test_map) is expected
+
+
+##############################################################################
+@mark.parametrize(
+    "test_map, expected",
+    [
+        ("iHello\tworld\tlocalhost\t70\r\n3Error\tworld\tlocalhost\t70\r\n.\r\n", True),
+        ("iHello\tworld\tlocalhost\t70\r\n.\r\n", False),
+        ("3Error\tworld\tlocalhost\t70\r\n.\r\n", True),
+        ("This is just some random test", False),
+        ("3. This is just some random test\r\n.\r\n", False),
+        (".\r\n", False),
+        ("", False),
+    ],
+)
+def test_is_likely_error(test_map: str, expected: bool) -> None:
+    """Test that is_likely_error returns True if the map contains an error item."""
+    assert GopherMap.is_likely_error(test_map) is expected
+
+
 ### test_gopher_map.py ends here
