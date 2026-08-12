@@ -58,7 +58,9 @@ class GopherMap:
         """The list of Gopher items in the map.
 
         Raises:
-            EmptyMap: If in strict mode and the map is empty.
+            EmptyMap: If the map is empty and strict mode is enabled.
+            NoFields: If the line is missing a tab character and strict mode is enabled.
+            UnknownItemType: If the item type is unknown and strict mode is enabled.
         """
         return tuple(self._parse_map(self._raw))
 
