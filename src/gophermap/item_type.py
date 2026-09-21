@@ -49,6 +49,8 @@ class ItemType(StrEnum):
     """A PNG image."""
     PDF = "P"
     """A PDF file."""
+    RTF = "r"
+    """A rich text format file."""
     XML = "X"
     """An XML file."""
     UNKNOWN = "unknown"
@@ -95,6 +97,7 @@ class ItemType(StrEnum):
             ItemType.PDF: "application/pdf",
             ItemType.XML: "application/xml",
             ItemType.PNG: "image/png",
+            ItemType.RTF: "application/rtf",
         }.get(self, "application/x-gopher-unknown")
 
 
