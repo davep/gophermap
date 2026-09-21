@@ -1,5 +1,14 @@
 # GopherMap ChangeLog
 
+## Unreleased
+
+**Released: WiP**
+
+- Added PNG to the recognised types.
+  ([#15](https://github.com/davep/gophermap/pull/15))
+- Added RTF to the recognised types.
+  ([#15](https://github.com/davep/gophermap/pull/15))
+
 ## v1.0.0
 
 **Released: 2026-08-12**
