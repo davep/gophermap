@@ -45,6 +45,8 @@ class ItemType(StrEnum):
     """A document file."""
     AUDIO = "s"
     """An audio file."""
+    PNG = "p"
+    """A PNG image."""
     PDF = "P"
     """A PDF file."""
     XML = "X"
@@ -92,6 +94,7 @@ class ItemType(StrEnum):
             ItemType.AUDIO: "application/octet-stream",
             ItemType.PDF: "application/pdf",
             ItemType.XML: "application/xml",
+            ItemType.PNG: "image/png",
         }.get(self, "application/x-gopher-unknown")
 
 
